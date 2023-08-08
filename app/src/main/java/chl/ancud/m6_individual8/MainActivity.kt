@@ -5,9 +5,9 @@ import android.os.Bundle
 
 /*
 [] 2 pantallas: Listado y detalle
-[] Permiso de internet
-[] ViewBinding
-[] Dependencias: Coil, Room, Retrofit, navigation, viewModel
+[X] Permiso de internet
+[X] ViewBinding
+[X] Dependencias: Coil, Room, Retrofit, navigation, viewModel
 [] navigation
 [] Listado: RecyclerView + ViewHolder + Adapter
 [] Detalle: RecyclerView + ViewHolder + Adapter
@@ -21,6 +21,7 @@ import android.os.Bundle
     [] Entity
     [] DAO
  */
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
