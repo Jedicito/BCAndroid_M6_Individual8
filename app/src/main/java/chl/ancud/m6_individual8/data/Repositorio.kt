@@ -1,5 +1,6 @@
 package chl.ancud.m6_individual8.data
 
+import androidx.lifecycle.LiveData
 import chl.ancud.m6_individual8.data.local.RazaDao
 import chl.ancud.m6_individual8.data.local.RazaEntity
 import chl.ancud.m6_individual8.data.remote.Raza
@@ -19,4 +20,6 @@ class Repositorio(private val razaAPI: RazaAPI, private val razaDao: RazaDao) {
             }
         }
     }
+
+    fun obtenerRazasLiveData(): LiveData<List<RazaEntity>> = razaDao.getRazas()
 }
