@@ -32,11 +32,21 @@ class DetalleFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDetalleBinding.inflate(layoutInflater)
         setComponentes()
+        initAdapter()
         razaViewModel.getDetalleRaza(raza!!)
         binding.flbVolverListado.setOnClickListener {
             Navigation.findNavController(binding.root).navigate(R.id.action_detalleFragment_to_listaRazasFragment)
         }
         return binding.root
+    }
+
+    private fun initAdapter() {
+        val adapter = AdapterDetalle()
+        binding.rvListaFotos.adapter = adapter
+        razaViewModel.detalleLiveData(raza!!).observe(viewLifecycleOwner)  {
+            adapter.setData(it)
+        }
+
     }
 
     private fun setComponentes() {
