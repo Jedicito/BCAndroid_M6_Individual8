@@ -5,6 +5,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import chl.ancud.m6_individual8.data.remote.Raza
+import chl.ancud.m6_individual8.data.remote.RazaDetalle
 
 @Dao
 interface RazaDao {
@@ -17,4 +19,7 @@ interface RazaDao {
 
     @Query("Select * from tabla_razas order by raza asc")
     fun getRazas(): LiveData<List<RazaEntity>>
+
+    @Query("Select * from tabla_fotosdetalle where nombre like :raza")
+    fun getFotosRaza(raza: String): LiveData<List<FotosDetalleEntity>>
 }

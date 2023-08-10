@@ -39,4 +39,6 @@ class Repositorio(private val razaAPI: RazaAPI, private val razaDao: RazaDao) {
     }
 
     fun obtenerRazasLiveData(): LiveData<List<RazaEntity>> = razaDao.getRazas()
+
+    fun obtenerDetalleLiveData(nombre: String): LiveData<List<FotosDetalleEntity>> = razaDao.getFotosRaza(nombre)
 }
