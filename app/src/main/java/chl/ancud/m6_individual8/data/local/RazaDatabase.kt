@@ -4,8 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import chl.ancud.m6_individual8.data.remote.RazaDetalle
 
-@Database(entities = [RazaEntity::class], version = 1)
+@Database(entities = [RazaEntity::class, FotosDetalleEntity::class], version = 1)
 abstract class RazaDatabase: RoomDatabase() {
     abstract fun getRazaDao(): RazaDao
 

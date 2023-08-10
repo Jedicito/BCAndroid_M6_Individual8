@@ -1,6 +1,8 @@
 package chl.ancud.m6_individual8.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
+import chl.ancud.m6_individual8.data.local.FotosDetalleEntity
 import chl.ancud.m6_individual8.data.local.RazaDao
 import chl.ancud.m6_individual8.data.local.RazaEntity
 import chl.ancud.m6_individual8.data.remote.Raza
@@ -18,6 +20,21 @@ class Repositorio(private val razaAPI: RazaAPI, private val razaDao: RazaDao) {
                 val razaEntity = RazaEntity(it)
                 razaDao.insertRaza(razaEntity)
             }
+        } else {
+            Log.e("Repositorio", response.errorBody().toString())
+        }
+    }
+
+    suspend fun getDetalleRaza(nombre: String) {
+        val response = razaAPI.getDetalleRaza(nombre)
+        if (response.isSuccessful){
+            val message = response.body()!!.message
+            message.forEach {
+                val fotosDetalleEntity = FotosDetalleEntity(nombre, it)
+                razaDao.insertFotosDetalle(fotosDetalleEntity)
+            }
+        }else {
+            Log.e("Repositorio", response.errorBody().toString())
         }
     }
 

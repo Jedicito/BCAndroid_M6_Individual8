@@ -9,5 +9,18 @@
         android:id="@+id/listaRazasFragment"
         android:name="chl.ancud.m6_individual8.presentacion.ListaRazasFragment"
         android:label="fragment_lista_razas"
-        tools:layout="@layout/fragment_lista_razas" />
+        tools:layout="@layout/fragment_lista_razas" >
+        <action
+            android:id="@+id/action_listaRazasFragment_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="chl.ancud.m6_individual8.presentacion.DetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle" >
+        <action
+            android:id="@+id/action_detalleFragment_to_listaRazasFragment"
+            app:destination="@id/listaRazasFragment" />
+    </fragment>
 </navigation>

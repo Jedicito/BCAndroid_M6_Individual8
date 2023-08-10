@@ -5,3 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "tabla_razas")
 class RazaEntity (@PrimaryKey val raza: String)
+
+@Entity(tableName = "tabla_fotosDetalle", primaryKeys = ["nombre", "ruta"])
+class FotosDetalleEntity(val nombre: String, val ruta: String)
