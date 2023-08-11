@@ -17,7 +17,7 @@ class Repositorio(private val razaAPI: RazaAPI, private val razaDao: RazaDao) {
             val message = response.body()!!.message //Solo sacando la parte de message, sin status
             val keys = message.keys
             keys.forEach {
-                val razaEntity = RazaEntity(it)
+                val razaEntity = it.toRazaEntity()
                 razaDao.insertRaza(razaEntity)
             }
         } else {
@@ -30,7 +30,7 @@ class Repositorio(private val razaAPI: RazaAPI, private val razaDao: RazaDao) {
         if (response.isSuccessful){
             val message = response.body()!!.message
             message.forEach {
-                val fotosDetalleEntity = FotosDetalleEntity(nombre, it)
+                val fotosDetalleEntity = it.toEntity(nombre)
                 razaDao.insertFotosDetalle(fotosDetalleEntity)
             }
         }else {
